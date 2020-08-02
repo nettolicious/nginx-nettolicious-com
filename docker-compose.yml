@@ -1,0 +1,15 @@
+version: '2'
+networks:
+  application_network:
+services:
+  mywebapp:
+    restart: "always"
+    image: mywebapp
+    container_name: "mywebapp"
+    environment:
+      VIRTUAL_PORT: 80
+      VIRTUAL_HOST: www.yourdomain.com
+      LETSENCRYPT_HOST: www.yourdomain.com
+      LETSENCRYPT_EMAIL: your-address@email.com
+    networks: 
+      - letsencrypt

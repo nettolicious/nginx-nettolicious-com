@@ -1,0 +1,17 @@
+docker-machine create --driver amazonec2 --amazonec2-security-group docker-machine --amazonec2-region us-east-2 nettolicious-docker-host
+docker-machine env nettolicious-docker-host
+
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://3.23.152.154:2376"
+export DOCKER_CERT_PATH="C:\Users\Matt\.docker\machine\machines\nettolicious-docker-host"
+export DOCKER_MACHINE_NAME="nettolicious-docker-host"
+export COMPOSE_CONVERT_WINDOWS_PATHS="true"
+# Run this command to configure your shell:
+# eval $("C:\Users\Matt\bin\docker-machine.exe" env nettolicious-docker-host)
+
+eval $("C:\Users\Matt\bin\docker-machine.exe" env nettolicious-docker-host)
+
+docker network create nettolicious
+
+Connect to a running container:
+winpty docker exec -it 97ac38b8e045 bash
