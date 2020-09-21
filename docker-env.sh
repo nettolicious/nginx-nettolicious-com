@@ -1,0 +1,5 @@
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://3.23.152.154:2376"
+export DOCKER_CERT_PATH="C:\Users\Matt\.docker\machine\machines\nettolicious-docker-host"
+export DOCKER_MACHINE_NAME="nettolicious-docker-host"
+export COMPOSE_CONVERT_WINDOWS_PATHS="true"

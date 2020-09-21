@@ -14,4 +14,23 @@ eval $("C:\Users\Matt\bin\docker-machine.exe" env nettolicious-docker-host)
 docker network create nettolicious
 
 Connect to a running container:
-winpty docker exec -it 97ac38b8e045 bash
+winpty docker exec -it 97ac38b8e045 bash|sh
+
+docker logs --follow 97ac38b8e045
+
+<Directory "/usr/local/apache2/htdocs">^
+<img _ngcontent-qvm-c92="" src="../../assets/images/globomantics-logo-darkblue.png">
+https://app.nettolicious.com/assets/images/globomantics-logo-darkblue.png
+
+172.18.0.2 - - [15/Aug/2020:20:59:48 +0000] "GET /assets/images/globomantics-logo-darkblue.png HTTP/1.1" 403 199
+[Sat Aug 15 20:59:48.005006 2020] [core:error] [pid 2911:tid 140347597261600] (13)Permission denied: [client 172.18.0.2:36286] 
+AH00035: access to /assets/images/globomantics-logo-darkblue.png denied (filesystem path '/usr/local/apache2/htdocs/assets/images') 
+because search permissions are missing on a component of the path
+172.18.0.2 - - [15/Aug/2020:20:59:48 +0000] "GET /favicon.ico HTTP/1.1" 200 15406
+
+troubleshooting in git bash:
+docker-machine ls
+eval $("C:\Users\Matt\bin\docker-machine.exe" env nettolicious-docker-host)
+docker ps -a
+## Start any containers that aren't running
+docker start 94f89400a468
